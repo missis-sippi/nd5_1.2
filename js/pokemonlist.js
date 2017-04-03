@@ -1,3 +1,6 @@
+'use strict';
+const Pokemon = require('./Pokemon');
+
 class PokemonList extends Array {
   add(name, level) {
     let pokemon = new Pokemon(name, level);
@@ -16,7 +19,8 @@ class PokemonList extends Array {
         max = item;
       }
     }
-    console.log("Pokemon %s has maximum level of %d", max.name, max.level); 
+    //console.log("Pokemon %s has maximum level of %d", max.name, max.level);
+    return max;
   }
 }
 module.exports = PokemonList;

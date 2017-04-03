@@ -1,10 +1,12 @@
+'use strict';
 const Pokemon = require('./Pokemon');
 const PokemonList = require('./PokemonList');
 const hide = require('./hidenseek').hide;
 const seek = require('./hidenseek').seek;
 
 const path = '../field';
-/*const pokemons = require('../data/pokemons.json');*/
+
+//const pokemons = require('../data/pokemons.json');
 const pokemons = [
   {name: 'lost1', level: 12},
   {name: 'lost2', level: 13},
@@ -13,7 +15,7 @@ const pokemons = [
   {name: 'found1', level: 12},
   {name: 'found2', level: 13},
   {name: 'found3', level: 0},
-  {name: 'found4', level: 15}
+  {name: 'found4', level: 16}
 ];
 
 
@@ -23,9 +25,10 @@ const pokemonObjects = pokemons.map(
 
 const lost = new PokemonList(...pokemonObjects.slice(0, 4));
 const found = new PokemonList(...pokemonObjects.slice(4));
+const allPoks = new PokemonList();
+pokemons.forEach(item => {
+  allPoks.add(item.name, item.level);
+});
 
-//lost.show();
-hide(path, lost);
-seek(path);
-
-
+//allPoks.max();
+hide(path, allPoks).then( () => seek(path) );

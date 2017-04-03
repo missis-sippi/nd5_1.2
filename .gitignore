@@ -1,2 +1,3 @@
-# игнорировать все файлы в каталоге field/
+# игнорировать все файлы в каталогах field/ и node-modules/
 field/
+node-modules/
